@@ -1,0 +1,17 @@
+How to set up the Arduino IDE for the DigiSpark ATTINY85 (Win64)
+
+	1.	Download the Arduino IDE
+	I.	Use this link: https://www.arduino.cc/en/Main/Software
+	II.	Get drivers for the board https://github.com/digistump/DigistumpArduino/releases
+	a)	click on DigiStumpDrivers.zip
+	b)	Extract and open DPinst64. Follow prompts
+	III.	Open Arduino IDE
+	I.	Click on File in top right -> Preferences
+	II.	Enter this url into the "Additional Boards Manager URLs": https://raw.githubusercontent.com/digistump/arduino-boards-index/master/package_digistump_index.json 
+	III.	Click okay and then click on Tools in the top menu bar
+	IV.	Hover over "Board", and click Boards Manager in the menu
+	V.	Click on the dropdown tab for type, select Contributed
+	VI.	Install Digistump AVR Boards
+	VII.	Go back to the Tools->Boards menu and select DigiSpark (Default - 16.5 mhz)
+	VIII. Go to Tools->Programmer and select USBtinyISP
+	IX.	Go to File->Examples and scroll down until you find DigiSparkKeyboard. Open the one example
